@@ -1,32 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Q1() {
-  const [isPopupOpen, setPopupOpen] = useState(false);
-    const [Result, setResult] = useState("");
+function Q1({open}) {
 
-    const openPopup = () => {
-        setPopupOpen(true);
-    };
-
-    const closePopup = () => {
-        setPopupOpen(false);
-    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
-        const selectedOption = formData.get('Q2_answer');
-        console.log('Resposta selecionada:', selectedOption);
-        if(selectedOption === "Ada"){
-            setResult("Parabéns!! Você acertou")
+        const selectedOption = formData.get('Q1_answer');
+
+        if(selectedOption === "Alan"){
+            open("Parabéns!! Você acertou")
         }else{
-            setResult("Opss!! Você errou jumento!")
+            open("Opss!! Você errou jumento!")
         }
     };
-
-    function returnMessage(){
-      return Result
-    }
 
   return (
     <>
@@ -36,15 +23,15 @@ function Q1() {
       </div>
       <div className='Options'>
           <label>
-            <input type="radio" name="fav_language" value="Alan" />
+            <input type="radio" name="Q1_answer" value="Alan" />
             Alan Turing
           </label><br />
           <label>
-            <input type="radio" name="fav_language" value="Steve" />
+            <input type="radio" name="Q1_answer" value="Steve" />
             Steve Jobs
           </label><br />
           <label>
-            <input type="radio" name="fav_language" value="Mark" />
+            <input type="radio" name="Q1_answer" value="Mark" />
             Mark Zuckerberg
           </label>
       </div>
@@ -53,14 +40,7 @@ function Q1() {
           <button className='btn'>Voltar</button>
       </div>
     </form>
-    <div>
-        {isPopupOpen && (
-            <div className='popup'>
-                <p>{Result}</p><br />
-                <button className='btn' onClick={closePopup}>Continuar</button>
-            </div>
-        )}
-    </div>
+
     </>
   );
 }

@@ -2,55 +2,73 @@ import React, { useState } from 'react';
 import "./style.css"
 
 
-function Q1() {
-    const [isPopupOpen, setPopupOpen] = useState(false);
-    const [Result, setResult] = useState("");
+function Q3({open}) {
 
-    const openPopup = () => {
-        setPopupOpen(true);
-    };
+    const [showResults, setShowResults] = useState(false);
+    const [results, setResults] = useState("");
+    let numbers = [];
+    const correctNumbers = [6, 12, 18, 24, 30, 36, 42, 48, 54, 60];
 
-    const closePopup = () => {
-        setPopupOpen(false);
-    };
+    function verifyNumbers(){
+        if (correctNumbers.length !== numbers.length){
+            return false;
+        }
+        for (let i=0; i<correctNumbers.length; i++){
+            if(numbers[i] !== correctNumbers[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+
+    function handleCode(code){
+        try {
+            // eslint-disable-next-line no-eval
+            numbers = eval(code);
+            setResults("Seu resultado: " + numbers.join(", "));
+            setShowResults(true);
+
+            verifyNumbers() ? open("Parabéns! Você acertou :)") : open("Opps! Algo está errado.")
+
+        } catch (error) {
+            open("Erro ao executar o código: " + error);
+        }
+
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
-        const selectedOption = formData.get('Q2_answer');
-        console.log('Resposta selecionada:', selectedOption);
-        if(selectedOption === "Ada"){
-            setResult("Parabéns!! Você acertou")
-            openPopup()
-        }else{
-            setResult("Opss!! Você errou jumento!")
-            openPopup()
-        }
+        const selectedOption = formData.get('Q3_answer');
+        handleCode(selectedOption);
     };
+
 
   return (
     <>
     <form onSubmit={handleSubmit} className='FormContainer'>
-        <div className='Question'>
-            <h2>Crie uma tabuada</h2>
+        <div className='Question q3'>
+            <h2>Crie uma função que retorna a tabuada de 6 em uma lista</h2>
+            <h4>* Não esqueça de invocar a função no final *</h4>
         </div>
         <div className='Options'>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <textarea name="Q3_answer" id="" cols="30" rows="10"></textarea>
+            <div>
+                Resultado esperado: {correctNumbers.join(", ")}
+            </div>
+
+            {showResults && <div>
+                {results}
+            </div>
+            }
         </div>
         <div className='buttons'>
             <button className='btn' type='submit'>Confirmar</button>
         </div>
     </form>
-    <div>
-        {isPopupOpen && (
-            <div className='popup'>
-                <p>{Result}</p><br />
-                <button className='btn' onClick={closePopup}>Continuar</button>
-            </div>
-        )}
-    </div>
     </>
   );
 }
 
-export default Q1;
+export default Q3;

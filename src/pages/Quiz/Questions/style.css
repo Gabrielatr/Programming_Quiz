@@ -8,8 +8,12 @@
 .Question{
     background-color: rebeccapurple;
     color: white;
-    height: 60px;
+    height: 65px;
     text-align: center;
+}
+
+.q3{
+    height: max-content;
 }
 
 .Options{
@@ -26,18 +30,6 @@ input[type="radio"] {
     width: 50px;
     height: 25px;
 }
-
-/* .radioBtn{
-    display: inline-flex;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    color: white;
-    border: 2px dotted rebeccapurple;
-    margin-right: 8px;
-    cursor: pointer;
-}
-*/
 
 input[type="radio"]:checked {
   background-color: rebeccapurple;

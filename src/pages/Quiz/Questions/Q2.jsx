@@ -1,29 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./style.css"
 
-function Q2() {
-    const [isPopupOpen, setPopupOpen] = useState(false);
-    const [Result, setResult] = useState("");
-
-    const openPopup = () => {
-        setPopupOpen(true);
-    };
-
-    const closePopup = () => {
-        setPopupOpen(false);
-    };
+function Q2({open}) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
         const selectedOption = formData.get('Q2_answer');
-        console.log('Resposta selecionada:', selectedOption);
+        
         if(selectedOption === "Ada"){
-            setResult("Parabéns!! Você acertou")
-            openPopup()
+            open("Parabéns!! Você acertou")
         }else{
-            setResult("Opss!! Você errou jumento!")
-            openPopup()
+            open("Opss!! Você errou jumento!")
         }
     };
 
@@ -55,14 +43,6 @@ function Q2() {
             <button className='btn' type='submit'>Confirmar</button>
         </div>
     </form>
-    <div>
-        {isPopupOpen && (
-            <div className='popup'>
-                <p>{Result}</p><br />
-                <button className='btn' onClick={closePopup}>Continuar</button>
-            </div>
-        )}
-    </div>
     </>
   );
 }
