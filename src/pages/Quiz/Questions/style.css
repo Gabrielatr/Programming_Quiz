@@ -1,0 +1,70 @@
+.FormContainer{
+    margin: 0 auto;
+    width: 70vw;
+    padding-top: 10vh;
+    
+}
+
+.Question{
+    background-color: rebeccapurple;
+    color: white;
+    height: 60px;
+    text-align: center;
+}
+
+.Options{
+    width: 50%;
+    font-size: 18px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+input[type="radio"] {
+    color: rebeccapurple;
+    width: 50px;
+    height: 25px;
+}
+
+/* .radioBtn{
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: white;
+    border: 2px dotted rebeccapurple;
+    margin-right: 8px;
+    cursor: pointer;
+}
+*/
+
+input[type="radio"]:checked {
+  background-color: rebeccapurple;
+  border-color: white;
+}
+
+.buttons button{
+    background-color: rebeccapurple;
+    color: white;
+    border: 0;
+    width: 150px;
+    height: 35px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 300px;
+    height: 200px;
+    z-index: 1000;
+    color: white;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+}

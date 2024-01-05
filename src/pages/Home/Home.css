@@ -1,0 +1,175 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0 auto;
+}
+
+/* ******************************* */
+
+/** CONTAINER **/
+
+.container{
+    background-color: #BAF1F5;
+    min-width: 350px;
+    min-height: 450px;
+    width: 40vw;
+    height: 55vh;
+    border-radius: 7%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.corpo{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    row-gap: 60px;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: #5BDDE8;
+}
+
+/* ******************************* */
+
+
+/** BEM VINDO **/
+.title{
+    display: flex;
+    margin: 0 auto;
+    font-weight: bold;
+    animation: devagarinho 1.3s ease-out;
+    height: 300px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@keyframes devagarinho {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: space-evenly;
+    height: inherit;
+    width: inherit;
+}
+
+.text{
+    font-size: 4.3em;
+}
+
+.name{
+    color: rebeccapurple;
+    font-size: 3em;
+}
+
+/* ******************************* */
+
+/** NUVEM **/
+
+.nuvem{
+    min-width: 150px;
+    min-height: 50px;
+    width: 320px;
+    height: 200px;
+    display: flex;
+    position: relative;
+}
+
+.nRight{
+    position: absolute;
+    top: -12vh;
+    right: -7vw;
+    animation: devagarinho 1.5s ease-in;
+}
+
+.nLeft{
+    position: absolute;
+    bottom: -7vh;
+    left: -10vw;
+    animation: devagarinho 1.5s ease-in;
+}
+
+.nuvens{
+    min-width: 320px;
+    min-height: 500px;
+    max-width: 100vw;
+    width: 45vw;
+    height: 70vh; 
+    position: relative;
+}
+
+/* INFO */
+
+.profileImage{
+    min-width: 50px;
+    min-height: 30px;
+    max-width: 120px;
+    max-height: 100px;
+    height: 20vh;
+    width: 30vw;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.data{
+    font-size: 1.2em;
+    min-width: 150px;
+}
+
+.info{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    column-gap: 30px;
+    text-align: left;
+    padding: 20px 40px;
+    width: inherit;
+}
+
+.buttons{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    column-gap: 25px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px 60px 40px;
+}
+
+@media screen and (max-width: 801px){
+    .buttons{
+        width: max-content;
+    }
+}
+
+.btn{
+    background-color: rebeccapurple;
+    color: white;
+    border: none;
+    border-radius: 36px;
+    min-width: 100px;
+    width: 130px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: rgba(102, 51, 153, 0.878);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
