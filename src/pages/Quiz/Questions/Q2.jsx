@@ -22,19 +22,19 @@ function Q2({open}) {
             <h2>Quem foi a(o) primeira(o) programador(a) da história?</h2>
         </div>
         <div className='Options'>
-            <label>
+            <label className="op">
                 <div className='radioBtn'></div><input type="radio" name="Q2_answer" value="Ada" />
                 Ada Lovelace
             </label><br />
-            <label>
+            <label className="op">
                 <input type="radio" name="Q2_answer" value="Alan" />
                 Alan Turing
             </label><br />
-            <label>
+            <label className="op">
                 <div className='radioBtn'></div><input type="radio" id="Charles" name="Q2_answer" value="Charles" />
                 Charles Babbage
             </label><br />
-            <label>
+            <label className="op">
                 <div className='radioBtn'></div><input type="radio" id="Konrad" name="Q2_answer" value="Konrad" />
                 Konrad Zuse
             </label>

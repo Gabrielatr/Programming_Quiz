@@ -31,8 +31,12 @@ function Q3({open}) {
 
             verifyNumbers() ? open("Parabéns! Você acertou :)") : open("Opps! Algo está errado.")
 
-        } catch (error) {
-            open("Erro ao executar o código: " + error);
+        }catch (error) {
+            if(numbers.length === 0){
+                open("Insira o código!");
+            }else{
+                open("Erro ao executar o código: " + error);
+            }
         }
 
     }

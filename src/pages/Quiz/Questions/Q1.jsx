@@ -22,15 +22,15 @@ function Q1({open}) {
           <h2>Quem é o pai da computação?</h2>
       </div>
       <div className='Options'>
-          <label>
+          <label className="op">
             <input type="radio" name="Q1_answer" value="Alan" />
             Alan Turing
           </label><br />
-          <label>
+          <label className="op">
             <input type="radio" name="Q1_answer" value="Steve" />
             Steve Jobs
           </label><br />
-          <label>
+          <label className="op">
             <input type="radio" name="Q1_answer" value="Mark" />
             Mark Zuckerberg
           </label>

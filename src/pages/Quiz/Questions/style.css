@@ -10,10 +10,12 @@
     color: white;
     height: 65px;
     text-align: center;
+    border-radius: 25px;
+    padding-top: 10px;
 }
 
 .q3{
-    height: max-content;
+    height: 75px;
 }
 
 .Options{
@@ -25,7 +27,7 @@
     row-gap: 10px;
 }
 
-input[type="radio"] {
+input[type="radio"]{
     color: rebeccapurple;
     width: 50px;
     height: 25px;
@@ -50,7 +52,7 @@ input[type="radio"]:checked {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -60%);
     background-color: rgba(0, 0, 0, 0.9);
     width: 300px;
     height: 200px;
@@ -59,4 +61,5 @@ input[type="radio"]:checked {
     font-weight: bold;
     padding: 20px;
     text-align: center;
+    border-radius: 25px;
 }

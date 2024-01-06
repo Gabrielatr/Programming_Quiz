@@ -10,8 +10,8 @@ const Home = () => {
             </div>
             <div className="container">
                 <div className='nuvens'>
-                    <img className='nuvem nRight' src="./Nuvem.png" alt="Nuvem" />
-                    <img className='nuvem nLeft' src="./Nuvem.png" alt="Nuvem" />
+                    <img className='nuvem nRight' src="./img/nuvem.png" alt="Nuvem" />
+                    <img className='nuvem nLeft' src="./img/nuvem.png" alt="Nuvem" />
                 </div>
 
                 <div className='content'>
