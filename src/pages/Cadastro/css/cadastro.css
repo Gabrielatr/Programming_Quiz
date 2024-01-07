@@ -53,6 +53,7 @@
     border-radius: 8px;
     border: none;
     width: 70%;
+    max-width: 150px;
     padding: 10px;
     margin: 20px auto;
     font-weight: 700;
@@ -209,7 +210,7 @@
     font-weight: 300;
     justify-content: center;
     margin-top: 1em;
-
+    display: flex;
 }
 
 .paragrafo_entrar_conta {
@@ -222,9 +223,9 @@
 }
 
 .box-criar_conta {
-
     display: flex;
     justify-content: center;
+    margin: 0 auto;
 }
 
 .links {

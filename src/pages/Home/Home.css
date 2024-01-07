@@ -114,15 +114,17 @@ body{
 
 /* INFO */
 
-.profileImage{
-    min-width: 50px;
-    min-height: 30px;
-    max-width: 120px;
-    max-height: 100px;
+.profileImage, .profileImage img{
+    min-width: 70px;
+    min-height: 50px;
+    max-width: 150px;
+    max-height: 200px;
     height: 20vh;
     width: 30vw;
     background-color: black;
     border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
 }
 
 .data{

@@ -23,12 +23,12 @@ function Q1({open}) {
       </div>
       <div className='Options'>
           <label className="op">
-            <input type="radio" name="Q1_answer" value="Alan" />
-            Alan Turing
-          </label><br />
-          <label className="op">
             <input type="radio" name="Q1_answer" value="Steve" />
             Steve Jobs
+          </label><br />
+          <label className="op">
+            <input type="radio" name="Q1_answer" value="Alan" />
+            Alan Turing
           </label><br />
           <label className="op">
             <input type="radio" name="Q1_answer" value="Mark" />

@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import Q1 from "./Questions/Q1";
 import Q2 from "./Questions/Q2";
 import Q3 from "./Questions/Q3";
-// import Q4 from "./Questions/Q4";
-// import Q5 from "./Questions/Q5";
+import Q4 from "./Questions/Q4";
+import Q5 from "./Questions/Q5";
 
 function Content({ currentTab }) {
 
@@ -25,8 +25,8 @@ function Content({ currentTab }) {
         {currentTab === 'Q1' && <Q1 open={openPopup}  />}
         {currentTab === 'Q2' && <Q2 open={openPopup} />}
         {currentTab === 'Q3' && <Q3 open={openPopup} />}
-        {/* {currentTab === 'Q4' && <Q4 />}
-        {currentTab === 'Q5' && <Q5 />} */}
+        {currentTab === 'Q4' && <Q4 open={openPopup} />}
+        {currentTab === 'Q5' && <Q5 open={openPopup} />}
       </div>
       <div>
         {isPopupOpen && (

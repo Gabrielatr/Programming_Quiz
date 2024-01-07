@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import Header from "./Header";
 import Content from "./Content";
 
-const Quiz = () => {
+const Quiz = (user) => {
 
-    const [currentTab, setCurrentTab] = useState('Q1');
+    const [currentTab, setCurrentTab] = useState("Q" + user.level);
 
     const handleTabChange = (tab) => {
         setCurrentTab(tab);
     };
+    
 
     return (
         <div className="QuizContainer">

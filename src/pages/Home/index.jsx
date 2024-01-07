@@ -1,12 +1,21 @@
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
-const Home = () => {
+const Home = ({user, updateUser, getUsers, deleteUser}) => {
+
+    const navigate = useNavigate();
+
+    const handleNavigate = (tab) => {
+        navigate(tab);
+    }
+
+
     return (
         <>
         <div className='corpo'>
             <div className='title'>
                 <span className='text'>Bem vindo</span> <br />
-                <span className='name'>{"{ Fulano }"}</span>
+                <span className='name'>{user.name}</span>
             </div>
             <div className="container">
                 <div className='nuvens'>
@@ -17,18 +26,18 @@ const Home = () => {
                 <div className='content'>
                     <div className='info'>
                         <div className='profileImage'>
-                            {/* <img src="#" alt="Clique para adicionar" /> */}
+                            {user.src && <img src={user.src} alt="Imagem de perfil" />}
                         </div>
                         <div className='data'>
-                            <p>Nome:</p>
-                            <p>Email:</p>
-                            <p>Level:</p>
+                            <p><b>Nome:  </b> {user.name}</p>
+                            <p><b>Email:  </b> {user.email}</p>
+                            <p><b>Level:  </b> {user.level}</p>
                         </div>
                     </div>
 
                     <div className='buttons'>
-                        <button className='btn'>Logout</button>
-                        <button className='btn'>Jogar</button>
+                        <button className='btn' onClick={() => handleNavigate("/login")}>Logout</button>
+                        <button className='btn' onClick={() => handleNavigate("/quiz")}>Jogar</button>
                     </div>
                 </div>
 

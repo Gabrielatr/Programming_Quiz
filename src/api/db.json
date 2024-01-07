@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "name": "Victor",
+      "email": "vitinho@gmail.com",
+      "password": "1234",
+      "src": "https://tiermaker.com/images/avatars-2022/WKLF20/WKLF20.jpg?1661576309",
+      "level": 2
+    },
+    {
+      "id": 1,
+      "name": "Gabi",
+      "email": "Gabizinha@gmail.com",
+      "password": "12345",
+      "src": "https://pbs.twimg.com/media/D3zPNe2WkAIOfIQ.png",
+      "level": 1
+    },
+    {
+      "name": "Raíssa",
+      "email": "raia@gmail.com",
+      "password": "Pobre",
+      "id": 2,
+      "level": 3
+    }
+  ]
+}
