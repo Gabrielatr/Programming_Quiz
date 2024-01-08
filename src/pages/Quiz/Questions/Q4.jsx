@@ -22,20 +22,20 @@ function Q4({open}) {
         <div className='Question q3'>
             <h2>Escolha a afirmativa correta: </h2>
         </div>
-        <div className='Options'>
-            <label className="op">
+        <div className='Options box_4'>
+            <label className="op op4">
                 <input type="radio" name="Q4_answer" value="1" />
                 A var pode mudar de valor e tem escopo global, let e const tem sempre o mesmo valor.
             </label><br />
-            <label className="op">
+            <label className="op op4">
                 <input type="radio" name="Q4_answer" value="2" />
                 A var pode mudar de valor e tem escopo local, o let pode mudar de valor e tem escopo global e a const tem sempre o mesmo valor.
             </label><br />
-            <label className="op">
+            <label className="op op4">
                 <input type="radio" name="Q4_answer" value="3" />
                 A var não pode mudar de valor, o let pode mudar de valor e tem escopo local e a const pode mudar de valor.
             </label><br />
-            <label className="op">
+            <label className="op op4">
                 <input type="radio" name="Q4_answer" value="4" />
                 A var pode mudar de valor e tem escopo global, o let pode mudar de valor e tem escopo local e a const tem sempre o mesmo valor.
             </label>

@@ -26,17 +26,17 @@ function Q5({open}) {
             <div className="box_question">
                 <img src="/img/question5.png" alt="Código fibonacci" />
             </div>
-            <div className="Options op">
-                <label className="op">
+            <div className="Options Ops5">
+                <label className="op op5">
                     <input type="radio" name="Q5_answer" value="1" />18
                 </label><br />
-                <label className="op">
+                <label className="op op5">
                     <input type="radio" name="Q5_answer" value="2" />12
                 </label><br />
-                <label className="op">
+                <label className="op op5">
                     <input type="radio" name="Q5_answer" value="3" />6
                 </label><br />
-                <label className="op">
+                <label className="op op5">
                     <input type="radio" name="Q5_answer" value="4" />8
                 </label>
             </div>
