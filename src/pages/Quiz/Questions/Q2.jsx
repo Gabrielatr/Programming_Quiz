@@ -11,7 +11,7 @@ function Q2({open}) {
         if(selectedOption === "Ada"){
             open("Parabéns!! Você acertou")
         }else{
-            open("Opss!! Você errou jumento!")
+            open("Opss!! Você errou.")
         }
     };
 

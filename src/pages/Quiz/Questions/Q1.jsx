@@ -11,7 +11,7 @@ function Q1({open}) {
         if(selectedOption === "Alan"){
             open("Parabéns!! Você acertou")
         }else{
-            open("Opss!! Você errou jumento!")
+            open("Opss!! Você errou.")
         }
     };
 
@@ -37,7 +37,6 @@ function Q1({open}) {
       </div>
       <div className='buttons'>
           <button className='btn' type='submit'>Confirmar</button>
-          <button className='btn'>Voltar</button>
       </div>
     </form>
 

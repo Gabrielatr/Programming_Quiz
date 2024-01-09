@@ -10,6 +10,7 @@ import { useState, useEffect } from "react"
 function App() {
 
   const [users, setUsers] = useState(null);
+  const [lastId, setLastId] = useState(null);
   const [auth, setAuth] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
@@ -22,6 +23,9 @@ function App() {
         return res.json();
       })
       .then(data => {
+        let n = 0;
+        data.map(() => n+=1)
+        setLastId(n+1)
         setUsers(data);
       })
       .catch(err => console.log("Sem acesso" + err))
@@ -85,8 +89,9 @@ function App() {
         <Route path="/" element={<Login />} /> 
         <Route path="/home" element={<Home />} />
         {/* autenticar={autenticar}  */}
-        <Route path="/cadastro" element={<Cadastro postUser={postUser} />} />
-        <Route path="/quiz" element={<Quiz user={currentUser} update={updateUser} />} />
+        <Route path="/cadastro" element={<Cadastro postUser={postUser} id={lastId} />} />
+        <Route path="/alterar" element={<Cadastro updateUser={updateUser} />} />
+        <Route path="/quiz" element={<Quiz user={currentUser} updateUser={updateUser} />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>

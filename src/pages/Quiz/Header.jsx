@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Quiz.css"
 import { useNavigate } from "react-router-dom";
 import { MdOutlineRestartAlt, MdSave, MdOutlineExitToApp } from "react-icons/md";
 
@@ -11,7 +12,7 @@ function Header({ onTabChange, user }) {
     return (
         <div className="Header">
             <div className="ProfileImage">
-                {/* {user.src && <img src={user.src} alt="Imagem de perfil" />} */}
+                {user.src && <img src={user.src} alt="Imagem de perfil" onClick={() => navigate(-1)}/>}
             </div>
 
             <div className="levels">
@@ -23,7 +24,7 @@ function Header({ onTabChange, user }) {
             </div>
 
             <div className="icons">
-                {/* <MdOutlineExitToApp className="icon" onClick={() => navigate("/")}/> */}
+                <MdOutlineExitToApp className="icon" onClick={() => navigate("/")}/>
             </div>
         </div>
     );

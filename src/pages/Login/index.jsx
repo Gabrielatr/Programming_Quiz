@@ -31,7 +31,8 @@ const Login = () => {
             return res.json();
         })
         .then(data => {
-            data.map(user =>{
+            let auth;
+            auth = data.map(user =>{
                 
                 if(user.email === formData.email){
                     if(user.password === formData.password){
@@ -43,11 +44,17 @@ const Login = () => {
                     }else{
                         alert("Senha errada!");
                     }
+                    return true;
                 }
-                return 0;
+                return false;
             });
+            if (!auth.includes(true)){
+                alert("Dados inválidos!");
+            }
         });
 	}
+    
+    
 
     return (
         <>

@@ -16,37 +16,23 @@ export const httpHelper = () => {
 		options.body = JSON.stringify(options.body) || false
 		if (!options.body) delete options.body
 
-        try {
-			const response = await fetch(url, options);
-
-			// Check if the response status is in the range 200-299
-			if (!response.ok) {
-				throw new Error(`HTTP error! Status: ${response.status}`);
-			}
-
-			// Parse the JSON response
-			const data = await response.json();
-			return data;
-		} catch (error) {
-			if (error.name === 'AbortError') {
-				console.log("Request aborted");
-			} else {
-				console.error("Other issues:", error);
-			}
-		}
-
-
 		// setTimeout(() => {
 		// 	controller.abort()
-		// }, 3000)
+		// }, 10000)
 
-		// try {
-		// 	const response = await fetch(url, options)
-		// 	return await response.json()
-		// } catch (err) {
-        //     console.log(options)
-		// 	return err
-		// }
+		try {
+			const response = await fetch(url, options)
+			const contentType = response.headers.get("content-type");
+			if (contentType && contentType.indexOf("application/json") !== -1) {
+				return await response.json();
+			} else {
+				return await response.text();
+			}
+		} catch (err) {
+            console.log(options)
+			return err
+		}
+		
 	}
 
 	const get = (url, options = {}) => customFetch(url, options)

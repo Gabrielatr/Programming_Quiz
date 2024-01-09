@@ -9,7 +9,7 @@ const Home = () => {
     const location = useLocation();
 
     useEffect(() =>{
-        setUser(location.state.currentUser);
+        setUser(location.state?.currentUser);
     }, []);
 
     const handleNavigate = (tab) => {
@@ -19,7 +19,13 @@ const Home = () => {
                     currentUser: user,
                 },
             });
-        } else {
+        } else if (tab === "/alterar") {
+            navigate("/alterar", {
+                state: {
+                    userData: user,
+                },
+            });
+        }else {
             navigate(tab);
         }
 
@@ -51,7 +57,8 @@ const Home = () => {
                     </div>
 
                     <div className='buttons'>
-                        <button className='btn' onClick={() => handleNavigate("/login")}>Logout</button>
+                        <button className='btn' onClick={() => handleNavigate("/")}>Logout</button>
+                        <button className='btn' onClick={() => handleNavigate("/alterar")}>Alterar dados</button>
                         <button className='btn' onClick={() => handleNavigate("/quiz")}>Jogar</button>
                     </div>
                 </div>

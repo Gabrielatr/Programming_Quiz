@@ -11,7 +11,7 @@ function Q4({open}) {
         if(selectedOption === "4"){
             open("Parabéns!! Você acertou")
         }else{
-            open("Opss!! Você errou jumento!")
+            open("Opss!! Você errou.")
         }
     };
 

@@ -4,25 +4,28 @@ import Header from "./Header";
 import Content from "./Content";
 import { useLocation } from "react-router-dom";
 
-const Quiz = ({update}) => {
+const Quiz = ({updateUser}) => {
 
     const location = useLocation();
-    const [user, setUser] = useState({
-        name: "",
-        email: "",
-        level: 0,
-    });
+    const [currentTab, setCurrentTab] = useState(null);
+    const [user, setUser] = useState(
+        {
+            id: 1,
+            name: "",
+            email: "",
+            password: "",
+            src: "",
+            level: 1,
+        }
+    )
     
     useEffect(() => {
-        if (location.state && location.state.currentUser) {
+        if (location.state.currentUser) {
             setUser(location.state.currentUser);
-            setCurrentTab("Q" + (user.level || 1));
+            console.log("Quiz:"  + JSON.stringify(user, null, 2))
+            setCurrentTab("Q" + user.level);
         }
     }, []);
-    
-
-    const [currentTab, setCurrentTab] = useState(null);
-
     
     const handleTabChange = (tab) => {
         setCurrentTab(tab);
@@ -33,7 +36,7 @@ const Quiz = ({update}) => {
     return (
         <div className="QuizContainer">
             <Header onTabChange={handleTabChange} user={user} />
-            <Content currentTab={currentTab} user={user} update={update} updateTab={handleTabChange}/>
+            <Content currentTab={currentTab} user={user} update={updateUser} updateTab={handleTabChange}/>
         </div>
     )
 }

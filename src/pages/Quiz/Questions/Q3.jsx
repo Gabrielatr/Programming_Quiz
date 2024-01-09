@@ -29,7 +29,7 @@ function Q3({open}) {
             setResults("Seu resultado: " + numbers.join(", "));
             setShowResults(true);
 
-            verifyNumbers() ? open("Parabéns! Você acertou :)") : open("Opps! Algo está errado.")
+            verifyNumbers() ? open("Parabéns!! Você acertou") : open("Opps! Algo está errado.")
 
         }catch (error) {
             if(numbers.length === 0){
