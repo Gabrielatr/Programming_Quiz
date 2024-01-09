@@ -1,0 +1,30 @@
+{
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "/img/nuvem.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/img/lock-closed.svg",
+      "type": "image/svg",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/img/lock-open.svg",
+      "type": "image/svg",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/img/question5.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
