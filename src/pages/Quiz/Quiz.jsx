@@ -1,21 +1,39 @@
 import "./Quiz.css"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from "./Header";
 import Content from "./Content";
+import { useLocation } from "react-router-dom";
 
-const Quiz = (user) => {
+const Quiz = ({update}) => {
 
-    const [currentTab, setCurrentTab] = useState("Q" + user.level);
+    const location = useLocation();
+    const [user, setUser] = useState({
+        name: "",
+        email: "",
+        level: 0,
+    });
+    
+    useEffect(() => {
+        if (location.state && location.state.currentUser) {
+            setUser(location.state.currentUser);
+            setCurrentTab("Q" + (user.level || 1));
+        }
+    }, []);
+    
 
+    const [currentTab, setCurrentTab] = useState(null);
+
+    
     const handleTabChange = (tab) => {
         setCurrentTab(tab);
     };
+
     
 
     return (
         <div className="QuizContainer">
-            <Header onTabChange={handleTabChange} />
-            <Content currentTab={currentTab} />
+            <Header onTabChange={handleTabChange} user={user} />
+            <Content currentTab={currentTab} user={user} update={update} updateTab={handleTabChange}/>
         </div>
     )
 }

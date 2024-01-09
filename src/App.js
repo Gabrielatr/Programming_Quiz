@@ -1,8 +1,9 @@
-import {BrowserRouter, Routes, Route, useNavigate} from "react-router-dom"
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Home from "./pages/Home"
 import Quiz from "./pages/Quiz/Quiz"
 import Login from "./pages/Login"
 import Cadastro from "./pages/Cadastro"
+import NoPage from "./pages/NoPage"
 import { httpHelper } from "./helper/httpHelper"
 import { useState, useEffect } from "react"
 
@@ -16,7 +17,14 @@ function App() {
 	const api = httpHelper()
 
 	useEffect(() => {
-		getUsers()
+		fetch('http://localhost:5000/users')
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        setUsers(data);
+      })
+      .catch(err => console.log("Sem acesso" + err))
 	}, [])
 
 	const postUser = user => {
@@ -49,35 +57,37 @@ function App() {
 			.catch(err => console.log("Sem acesso" + err))
 	}
 
-  function verificar(user, userData){
-    if (userData.email === user.email && userData.password === user.password){
-      setCurrentUser(user);
-      setAuth(true);
-      return true;
-    }
-  }
+  // function verificar(user, userData){
+  //   if (userData.email === user.email && userData.password === user.password){
+  //     setCurrentUser(user);
+  //     setAuth(true);
+  //     return true;
+  //   }
+  // }
 
-  const autenticar = (userData) => {
-    let login;
-    try{
-      if (users && users.length>0){
-        login = users.map(dict => verificar(dict, userData))
-      }else{
-        console.log("O documento não existe ou se escontra vazio!");
-      }
-    }catch(error){
-      console.error(error);
-    }
-    return login;
-  }
+  // const autenticar = (userData) => {
+  //   let login;
+  //   try{
+  //     if (users && users.length>0){
+  //       login = users.map(dict => verificar(dict, userData))
+  //     }else{
+  //       console.log("O documento não existe ou se escontra vazio!");
+  //     }
+  //   }catch(error){
+  //     console.error(error);
+  //   }
+  //   return login;
+  // }
 
   return (
     <BrowserRouter>
     <Routes>
-        <Route path="/" element={<Home updateUser={updateUser} deleteUser={deleteUser} user={currentUser} />} />
-        <Route path="/login" element={<Login autenticar={autenticar} />} />
+        <Route path="/" element={<Login />} /> 
+        <Route path="/home" element={<Home />} />
+        {/* autenticar={autenticar}  */}
         <Route path="/cadastro" element={<Cadastro postUser={postUser} />} />
-        <Route path="/quiz" element={<Quiz user={currentUser} />} />
+        <Route path="/quiz" element={<Quiz user={currentUser} update={updateUser} />} />
+        <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>
   );

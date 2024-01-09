@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "json-server": "^1.0.0-alpha.13",
     "react-router-dom": "^6.21.1"
   }
 }

@@ -2,8 +2,8 @@ import { useState } from "react";
 import "./estilos/style.css";
 import { Link, useNavigate } from 'react-router-dom';
 
-const Login = ({autenticar}) => {
-    const [data, setData] = useState({});
+const Login = () => {
+    const [formData, setFormData] = useState(null);
     const navigate = useNavigate();
     
     const handleClick = () => {
@@ -22,16 +22,32 @@ const Login = ({autenticar}) => {
     }
 
     const handleChange = (e) => {
-        setData({...data, [e.target.name]: e.target.value});
+        setFormData({...formData, [e.target.name]: e.target.value});
     }
 
-    const handleSubmit = () => {
-        if(autenticar(data)){
-            navigate("/");
-        }else{
-            alert("Verifique os seus dados. Usuário ou senha inválido");
-        }
-    }
+    function handleSubmit(){
+        fetch('http://localhost:5000/users')
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            data.map(user =>{
+                
+                if(user.email === formData.email){
+                    if(user.password === formData.password){
+                        navigate("/home", { 
+                            state: {
+                                currentUser: user,
+                            }
+                        });
+                    }else{
+                        alert("Senha errada!");
+                    }
+                }
+                return 0;
+            });
+        });
+	}
 
     return (
         <>

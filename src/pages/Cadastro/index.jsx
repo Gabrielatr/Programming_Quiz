@@ -78,7 +78,7 @@ const Cadastro = ({userData = {}, postUser, updateUser}) => {
 
                         <input type="submit" className="btn1" value={`${!userData.id ? "Criar conta" : "Alterar dados"}`} />
                         <div className="box-criar_conta">
-                            <p className="paragrafo_entrar_conta">Já tem uma conta? </p> <Link to="/login" className="entrar_conta">Entrar</Link>
+                            <p className="paragrafo_entrar_conta">Já tem uma conta? </p> <Link to="/" className="entrar_conta">Entrar</Link>
                         </div>
 
                     </div>

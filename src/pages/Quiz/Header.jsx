@@ -1,9 +1,9 @@
-import { MdOutlineRestartAlt, MdSave, MdOutlineExitToApp } from "react-icons/md";
 import React from 'react';
+import { useNavigate } from "react-router-dom";
+import { MdOutlineRestartAlt, MdSave, MdOutlineExitToApp } from "react-icons/md";
 
-
-function Header ({onTabChange}) {
-    // npm install react-icons --save
+function Header({ onTabChange, user }) {
+    const navigate = useNavigate();
     const handleClick = (tab) => {
         onTabChange(tab);
     };
@@ -11,6 +11,7 @@ function Header ({onTabChange}) {
     return (
         <div className="Header">
             <div className="ProfileImage">
+                {/* {user.src && <img src={user.src} alt="Imagem de perfil" />} */}
             </div>
 
             <div className="levels">
@@ -22,9 +23,7 @@ function Header ({onTabChange}) {
             </div>
 
             <div className="icons">
-                <MdOutlineRestartAlt className="icon" />
-                <MdSave className="icon" />
-                <MdOutlineExitToApp className="icon" />
+                {/* <MdOutlineExitToApp className="icon" onClick={() => navigate("/")}/> */}
             </div>
         </div>
     );

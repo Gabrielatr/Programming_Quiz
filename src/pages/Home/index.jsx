@@ -1,14 +1,29 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Home.css';
+import { useEffect, useState } from 'react';
 
-const Home = ({user, updateUser, getUsers, deleteUser}) => {
+const Home = () => {
 
+    const [user, setUser] = useState({})
     const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() =>{
+        setUser(location.state.currentUser);
+    }, []);
 
     const handleNavigate = (tab) => {
-        navigate(tab);
-    }
+        if (tab === "/quiz") {
+            navigate("/quiz", {
+                state: {
+                    currentUser: user,
+                },
+            });
+        } else {
+            navigate(tab);
+        }
 
+    }
 
     return (
         <>
